@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SPI Day Planner — South Padre Island</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+
+  
+  <link rel="stylesheet" href="file:///Macintosh HD/Users/ryansantillan/Documents/GitHub/1316_module7/main.css" />
+</head>
+<body id="top">
+  <div id="container">
+    <header>
+      <h1>SPI Day Planner</h1>
+      <p class="subtitle">Practical plans for families &amp; students on short trips</p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#itineraries">Half-Day Itineraries</a></li>
+        <li><a href="#beach-access">Best Beach Access</a></li>
+        <li><a href="#turtle-center">Sea Turtle, Inc.</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+        <li><a href="#audio">Ocean Audio</a></li>
+      </ul>
+    </nav>
+
+    <section class="intro panel">
+      <h2>Welcome</h2>
+      <p><b>Cut through the noise</b> — here’s how to enjoy <i>South Padre Island</i> in <b>half a day or less</b>. This planner gives you clear plans, parking notes, and budget tips so you spend less time scrolling and more time in the sand. 🏖️</p>
+    </section>
+
+  
+    <section class="cards-row">
+      <h2 class="cards-title">Plan by Activity (Click a Photo)</h2>
+
+      <a class="card" href="https://www.cameroncountyparks.com/isla-blanca-park/" target="_blank" rel="noopener noreferrer" title="Isla Blanca Park details">
+        <img src="file:///Macintosh HD/Users/ryansantillan/Documents/GitHub/1316_module7/images/sunsetplan.jpeg" alt="Sunset at Isla Blanca Park" />
+        <span class="card-title">Sunset Plan — Isla Blanca</span>
+      </a>
+
+      <a class="card" href="https://www.myspi.org/departments/beach/dune-and-beach-access" target="_blank" rel="noopener noreferrer" title="Official beach access info">
+        <img src="file:///Macintosh HD/Users/ryansantillan/Documents/GitHub/1316_module7/images/beachaccess.jpeg" alt="Wide sandy beach access" />
+        <span class="card-title">Beach Access Map &amp; Fees</span>
+      </a>
+
+      <a class="card" href="https://seaturtleinc.org/" target="_blank" rel="noopener noreferrer" title="Sea Turtle, Inc. official site">
+        <img src="file:///Macintosh HD/Users/ryansantillan/Documents/GitHub/1316_module7/images/sea turtle.jpeg" alt="Sea Turtle, Inc. entrance" />
+        <span class="card-title">Sea Turtle, Inc.</span>
+      </a>
+
+      <a class="card" href="https://www.myspi.org/visitors/things_to_do" target="_blank" rel="noopener noreferrer" title="Visitor info, eats &amp; more">
+        <img src="file:///Macintosh HD/Users/ryansantillan/Documents/GitHub/1316_module7/images/budgeteat.jpeg" alt="Casual budget eats plate" />
+        <span class="card-title">Budget Eats &amp; Snacks</span>
+      </a>
+    </section>
+
+    <section>
+      <div class="left" style="float:none;width:100%;padding-right:0;">
+        <section id="itineraries" class="panel">
+          <h2>Half-Day Itineraries</h2>
+
+          <div class="plan-helper" aria-live="polite">
+            <label for="planSelect"><b>Plan Helper:</b> Choose a time of day</label>
+            <div class="controls">
+              <select id="planSelect" name="planSelect" aria-label="Choose a time of day">
+                <option value="morning">Morning Plan ☀️</option>
+                <option value="afternoon">Afternoon Plan 🌤️</option>
+                <option value="sunset">Sunset Plan 🌇</option>
+              </select>
+              <button id="showPlanBtn" type="button">Show Suggested Plan</button>
+            </div>
+            <p id="planSummary" class="summary" tabindex="0" aria-live="polite"></p>
+          </div>
+
+          <div id="planDetails" class="plans" aria-live="polite"></div>
+
+          <noscript>
+            <h3>Morning Plan ☀️</h3>
+            <ul>
+              <li><b>9:00–10:30</b> Beach time (near Beach Access #3 or Isla Blanca Park)</li>
+              <li><b>10:45–11:30</b> Sea Turtle, Inc. (quick visit + gift shop)</li>
+              <li><b>11:45–12:30</b> Budget lunch (tacos or seafood basket)</li>
+            </ul>
+            <p><b>Maps &amp; tips:</b> Park early for shade; bring water; restrooms at parks listed below.</p>
+          </noscript>
+        </section>
+
+        <section id="beach-access" class="panel">
+          <h2>Best Beach Access 🏖️</h2>
+          <p>Compare <b>Isla Blanca Park</b>, <b>Andy Bowie Park</b>, and <b>free access points</b> to match your time and budget.</p>
+
+          <div class="table-wrap">
+            <table class="compare" aria-describedby="beachTableCaption">
+              <caption id="beachTableCaption">Beach Access Comparison — fees, amenities, and notes</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Location</th>
+                  <th scope="col">Fees</th>
+                  <th scope="col">Amenities</th>
+                  <th scope="col">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Isla Blanca Park</th>
+                  <td>$ (entry)</td>
+                  <td>Restrooms, showers, jetties, snack stands</td>
+                  <td>Most convenient; great views</td>
+                </tr>
+                <tr>
+                  <th scope="row">Andy Bowie Park</th>
+                  <td>$ (parking)</td>
+                  <td>Restrooms, showers</td>
+                  <td>Quieter north-end vibe</td>
+                </tr>
+                <tr>
+                  <th scope="row">Access #3 (walk-on)</th>
+                  <td>Free</td>
+                  <td>Limited amenities</td>
+                  <td>Arrive early for parking</td>
+                </tr>
+                <tr>
+                  <th scope="row">Access #6 (drive-on)</th>
+                  <td>Free (+ conditions)</td>
+                  <td>No facilities</td>
+                  <td>Check tides &amp; traction</td>
+                </tr>
+                <tr>
+                  <th scope="row">City Beach Lots</th>
+                  <td>Varies</td>
+                  <td>Near shops &amp; food</td>
+                  <td>Watch signs &amp; meters</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="turtle-center" class="panel">
+          <h2>Sea Turtle, Inc. (Turtle Center) 🐢</h2>
+          <ul>
+            <li><b>Hours:</b> Plan <i>30–60 minutes</i> for exhibits &amp; resident turtles.</li>
+            <li><b>Cost:</b> Budget-friendly; check current pricing.</li>
+            <li><b>What to expect:</b> Conservation exhibits, rehab stories, gift shop.</li>
+            <li><b>Why it’s great:</b> Kids/students love the <i>hands-on learning</i> and <b>cute turtles</b>.</li>
+          </ul>
+
+          <div class="map-embed">
+            <iframe
+              title="Sea Turtle, Inc. on Google Maps"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.7923520821484!2d-97.1659!3d26.1144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866f917c7b4c6e37%3A0x0!2sSea%20Turtle%2C%20Inc.!5e0!3m2!1sen!2sus!4v1700000000000">
+            </iframe>
+          </div>
+        </section>
+
+        <section id="trip-help" class="panel trio">
+          <div class="trio-grid">
+            <article class="mini">
+              <h3>Budget Eats &amp; Snacks 🍤</h3>
+              <ul>
+                <li><b>Under $15 per person:</b> tacos, pizza, seafood baskets.</li>
+                <li><b>Family-friendly:</b> Combo plates, share sides, water pitchers.</li>
+                <li><b>Grab-and-go:</b> Deli subs, fruit cups, big waters for the beach.</li>
+              </ul>
+            </article>
+
+            <article class="mini">
+              <h3>What to Pack 🧴</h3>
+              <ul class="checklist">
+                <li>Sunscreen &amp; hats</li>
+                <li>Cash for fees</li>
+                <li>Water shoes</li>
+                <li>Refillable water bottles</li>
+                <li>Light cover-up for evenings</li>
+              </ul>
+            </article>
+
+            <article class="mini">
+              <h3>Parking Hacks 🚗</h3>
+              <ol class="roman">
+                <li>Arrive early for shaded spots</li>
+                <li>Carry small bills/cards for meters</li>
+                <li>Check park lots first on busy days</li>
+                <li>Watch tide/traction for drive-on beaches</li>
+                <li>Read signs to avoid tickets</li>
+              </ol>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+   
+    <section id="plan-date" class="panel">
+      <h2>Choose Your Visit Date</h2>
+      <input type="text" id="visitDate" placeholder="Pick a date" aria-label="Pick a date">
+    </section>
+
+   
+    <section id="feedback" class="panel">
+      <h2>Visitor Feedback Form</h2>
+      <form id="feedbackForm">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <p>Did you find this planner helpful?</p>
+        <label><input type="radio" name="helpful" value="yes" required> Yes</label>
+        <label><input type="radio" name="helpful" value="no"> No</label><br><br>
+
+        <p>What did you enjoy?</p>
+        <label><input type="checkbox" name="enjoy" value="beach"> Beaches</label>
+        <label><input type="checkbox" name="enjoy" value="turtles"> Sea Turtles</label>
+        <label><input type="checkbox" name="enjoy" value="food"> Food</label><br><br>
+
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </section>
+
+   
+    <section id="audio" class="panel">
+      <h2>Relax with Ocean Sounds 🌊</h2>
+      <audio controls>
+        <source src="file:///Macintosh HD/Users/ryansantillan/Documents/GitHub/1316_module7/media/oceansounds.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+
+   
+    <section id="canvas-shape" class="panel">
+      <h2>Canvas Shape Demo</h2>
+      <canvas id="myCanvas" width="200" height="150" style="border:1px solid #1a4ba3;"></canvas>
+    </section>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Ryan Santillan • SPI Day Planner</p>
+      <p><a href="#top" class="back-to-top">Back to Top ↑</a></p>
+    </footer>
+  </div>
+
+
+  <script>
+   
+    (function(){
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#1a4ba3";
+      ctx.fillRect(40, 40, 120, 60);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const yearSpan = document.getElementById('year');
+      yearSpan.textContent = new Date().getFullYear();
+
+      const planSelect   = document.getElementById('planSelect');
+      const showBtn      = document.getElementById('showPlanBtn');
+      const planSummary  = document.getElementById('planSummary');
+      const planDetails  = document.getElementById('planDetails');
+
+      const PLANS = {
+        morning: {
+          title: "Morning Plan ☀️",
+          summary: "🌟 Morning: 9:00–10:30 Beach → 10:45–11:30 Sea Turtle, Inc. → 11:45–12:30 Lunch.",
+          items: [
+            "9:00–10:30 Beach time (near Beach Access #3 or Isla Blanca Park)",
+            "10:45–11:30 Sea Turtle, Inc. (quick visit + gift shop)",
+            "11:45–12:30 Budget lunch (tacos or seafood basket)"
+          ],
+          tips: "Maps & tips:",
+          details: "Park early for shade; bring water; restrooms at parks listed below."
+        },
+        afternoon: {
+          title: "Afternoon Plan 🌤️",
+          summary: "🌟 Afternoon: 1:00–1:45 Sea Turtle, Inc. → 2:00–4:00 Beach Access #6 → 4:15–4:45 Snack.",
+          items: [
+            "1:00–1:45 Sea Turtle, Inc. (short + sweet)",
+            "2:00–4:00 Beach Access #6 (drive-on if sand allows)",
+            "4:15–4:45 Snack stop (shaved ice or cold drinks)"
+          ],
+          tips: "Maps & tips:",
+          details: "Check tides; traction matters on drive-on beaches; carry cash for fees."
+        },
+        sunset: {
+          title: "Sunset Plan 🌇",
+          summary: "🌟 Sunset: 3:00–5:00 Isla Blanca Park → 5:15–6:00 Quick bites → 6:15–sunset Golden hour at jetties.",
+          items: [
+            "3:00–5:00 Isla Blanca Park (jetties & views)",
+            "5:15–6:00 Quick bites (pizza slice or fish basket)",
+            "6:15–sunset Back to the jetties for golden hour"
+          ],
+          tips: "Maps & tips:",
+          details: "Paid entry at Isla Blanca; bring a light jacket for breezes."
+        }
+      };
+
+      function renderPlan(key, {scroll=false} = {}) {
+        const plan = PLANS[key];
+        if (!plan) return;
+        planSummary.textContent = plan.summary;
+
+        const html = `
+          <article class="plan" data-plan="${key}">
+            <h3>${plan.title}</h3>
+            <ul class="dotline">
+              ${plan.items.map(i => `<li>${i}</li>`).join("")}
+            </ul>
+            <p class="tips"><b>${plan.tips}</b> <span>${plan.details}</span></p>
+          </article>
+        `;
+        planDetails.innerHTML = html;
+
+        planSummary.setAttribute('tabindex','0');
+        planSummary.focus();
+        if (scroll) planDetails.scrollIntoView({behavior:"smooth", block:"start"});
+      }
+
+      showBtn.addEventListener("click", () => renderPlan(planSelect.value, {scroll:true}));
+      planSelect.addEventListener("change", () => renderPlan(planSelect.value));
+
+      (function initFromHash(){
+        const m = location.hash.match(/plan=(morning|afternoon|sunset)/i);
+        const key = m ? m[1].toLowerCase() : "morning";
+        planSelect.value = key;
+        renderPlan(key);
+      })();
+    })();
+  </script>
+
+
+  <script>
+    $(function () {
+      $("#visitDate").datepicker({ showAnim: "fadeIn" });
+      $("#feedbackForm").on("submit", function (e) {
+        e.preventDefault();
+        alert("Thanks for your feedback!");
+      });
+    });
+  </script>
+</body>
+</html>
+
